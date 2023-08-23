@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Condenados ao Poder - Lançamento de Dados</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Condenados ao Poder</h1>
+        <div class="input-container">
+            <label for="quantity">Quantidade de Dados:</label>
+            <input type="number" id="quantity" min="1" value="1">
+        </div>
+        <div class="input-container">
+            <label for="difficulty">Nível de Dificuldade:</label>
+            <input type="number" id="difficulty" min="2" max="10" value="5">
+        </div>
+        <button id="rollButton">Jogar</button>
+        <div id="resultContainer" class="hidden">
+            <p>Quantidade de Sucessos: <span id="successCount">0</span></p>
+            <p>Quantidade de Fracassos Graves: <span id="failureCount">0</span></p>
+            <button id="showModalButton">Mostrar Detalhes</button>
+            <button id="resetButton">Reiniciar</button>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Detalhes do Lançamento</h2>
+            <ul id="rollDetails"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
