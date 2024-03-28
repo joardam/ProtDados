@@ -1,6 +1,7 @@
 const rollButton = document.getElementById('rollButton');
 const quantityInput = document.getElementById('quantity');
 const difficultyInput = document.getElementById('difficulty');
+const diceTypeInput = document.getElementById('diceType');
 const resultContainer = document.getElementById('resultContainer');
 const successCount = document.getElementById('successCount');
 const failureCount = document.getElementById('failureCount');
@@ -12,13 +13,21 @@ const resetButton = document.getElementById('resetButton');
 rollButton.addEventListener('click', () => {
     const quantity = parseInt(quantityInput.value);
     const difficulty = parseInt(difficultyInput.value);
+    const diceType = diceTypeInput.value;
 
     let successes = 0;
     let failures = 0;
     const rolls = [];
 
     for (let i = 0; i < quantity; i++) {
-        const rollResult = Math.floor(Math.random() * 10) + 1;
+        let rollResult;
+        if (diceType === 'd6') {
+            rollResult = Math.floor(Math.random() * 6) + 1;
+        } else if (diceType === 'd12') {
+            rollResult = Math.floor(Math.random() * 12) + 1;
+        } else {
+            rollResult = Math.floor(Math.random() * 10) + 1; // Padrão é d10
+        }
         rolls.push(rollResult);
 
         if (rollResult >= difficulty) {
